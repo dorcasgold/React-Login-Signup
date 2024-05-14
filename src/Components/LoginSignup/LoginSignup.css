@@ -97,3 +97,21 @@ body {
 .gray {
   background: #201c29;
 }
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 350px;
+  }
+
+  .input {
+    width: 300px;
+  }
+
+  .submit-container {
+    gap: 21px;
+  }
+
+  .submit {
+    padding: 15px 40px;
+  }
+}
