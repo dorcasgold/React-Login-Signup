@@ -31,7 +31,7 @@ function LoginSignup() {
         </div>
       </div>
       {
-        action === "Sign Up" ? <div></div> : <div className="forgot-password">Lost Password? <span>Click Here</span></div>
+        action !== "Login" ? <div></div> : <div className="forgot-password">Lost Password? <span onClick={() => setAction('Reset Password')}>Click Here</span></div>
 
       }
       <div className="submit-container">
