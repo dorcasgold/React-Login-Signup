@@ -6,12 +6,34 @@ body {
   margin: 0;
   background: #201c29;
   color: #fff0d4;
+  display: flex;
+  justify-content: center;
 }
 
 /* #fff0d4 #ff7a18 */
 
-.container {
-  height: 100vh;
-  display: flex;
+.input {
+  margin: 2rem 0px;
+}
 
+input {
+  border: 2px solid #fff0d4;
+  background: transparent;
+  outline: none;
+  padding: 10px 9px;
+  border-radius: 10px;
+}
+
+input[type="password"],
+input[type="email"] {
+  width: 25rem;
+}
+
+span {
+  color: red;
+}
+
+.btn button {
+  padding: 10px 8rem;
+  margin: 2rem 0px;
 }
