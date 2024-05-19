@@ -1,20 +1,16 @@
 import React from 'react'
 import './LoginSignup.css'
-
-// import user_icon from '../Assets/person.png'
-// import email_icon from '../Assets/email.png'
-// import password_icon from '../Assets/password.png'
-// import { useState } from 'react'
+import { useState } from 'react'
 
 
 function LoginSignup() {
   return (
-    <div className="container">
-      <header>
-        <h1>Sign Up</h1>
+    <div className="container flex flex-col items-center">
+      <header className='my-4 '>
+        <h1 className='text-3xl font-bold'>Sign Up</h1>
       </header>
       <div className="inputs">
-        <div className="input">
+        <div className="input flex gap-5">
           <input type="text" placeholder='FirstName' />
           <input type="text" placeholder='LastName' />
         </div>
@@ -24,7 +20,7 @@ function LoginSignup() {
         <div className="input">
           <input type="password" placeholder='password' />
         </div>
-        <div className="input">
+        <div className="input flex">
           <input type="password" placeholder='Confirm Password' />
         </div>
       </div>
