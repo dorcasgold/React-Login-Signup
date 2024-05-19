@@ -28,3 +28,12 @@ input[type="password"],
 input[type="email"] {
   width: 25rem;
 }
+
+span {
+  color: red;
+}
+
+.btn button {
+  padding: 10px 8rem;
+  margin: 2rem 0px;
+}
