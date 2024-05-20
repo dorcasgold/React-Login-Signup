@@ -9,8 +9,8 @@ function LoginSignup() {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    password: '',
     email: '',
+    password: '',
     confirmPassword: '',
   })
   const [errors, setErrors] = useState({})
@@ -38,7 +38,7 @@ function LoginSignup() {
     if (!formData.password.trim()) {
       validationErrors.password = 'password is required'
     } else if (formData.password.length < 7) {
-      validationErrors.email = "password should be at least 7 char"
+      validationErrors.password = "password should be at least 7 char"
     }
     if (formData.confirmPassword !== formData.password) {
       validationErrors.confirmPassword = 'Password not match'
@@ -59,25 +59,31 @@ function LoginSignup() {
       <div className="inputs">
         {title === 'Sign In' ? <div></div> :
           <div className="input flex gap-5">
-            <input type="text" name='firstName' autoComplete='off' placeholder='FirstName' onChange={handleChange} />
-            {errors.firstName && <span>{errors.firstName}</span>}
-            <input type="text" name='lastName' autoComplete='off' placeholder='LastName' onChange={handleChange} />
-            {errors.lastName && <span>{errors.lastName}</span>}
+            <div className='flex flex-col'>
+              <input type="text" name='firstName' autoComplete='off' placeholder='FirstName' onChange={handleChange} />
+              {errors.firstName && <span className='errors'>{errors.firstName}</span>}
+            </div>
+            <div className='flex flex-col'>
+              <input type="text" name='lastName' autoComplete='off' placeholder='LastName' onChange={handleChange} />
+              {errors.lastName && <span className='errors'>{errors.lastName}</span>}
+            </div>
+
           </div>
         }
 
-        <div className="input">
+        <div className="input flex flex-col">
           <input type="email" name='email' autoComplete='off' placeholder='email' onChange={handleChange} />
-          {errors.email && <span>{errors.email}</span>}
+          {errors.email && <span className='errors'>{errors.email}</span>}
         </div>
-        <div className="input">
+        <div className="input flex flex-col">
           <input type="password" name='password' placeholder='password' onChange={handleChange} />
-          {errors.password && <span>{errors.password}</span>}
+          {errors.password && <span className='errors'>{errors.password}</span>}
         </div>
-        {title === 'Sign In' ? <div></div> : <div className="input flex">
-          <input type="password" name='confirmPassword' placeholder='Confirm Password' onChange={handleChange} />
-          {errors.confirmPassword && <span>{errors.confirmPassword}</span>}
-        </div>}
+        {title === 'Sign In' ? <div></div> :
+          <div className="input flex flex-col">
+            <input type="password" name='confirmPassword' placeholder='Confirm Password' onChange={handleChange} />
+            {errors.confirmPassword && <span className='errors'>{errors.confirmPassword}</span>}
+          </div>}
 
       </div>
       {title === 'Sign In' ?

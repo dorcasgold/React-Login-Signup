@@ -37,3 +37,13 @@ span {
   padding: 10px 8rem;
   margin: 2rem 0px;
 }
+
+.errors {
+  padding-left: 1rem;
+  padding-top: 10px;
+  font-size: 15px;
+}
+
+.container {
+  padding-left: 1rem;
+}
