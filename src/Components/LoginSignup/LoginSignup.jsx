@@ -13,6 +13,7 @@ function LoginSignup() {
     email: '',
     confirmPassword: '',
   })
+  const [errors, setErrors] = useState({})
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -43,6 +44,11 @@ function LoginSignup() {
       validationErrors.confirmPassword = 'Password not match'
     }
   }
+
+  setErrors(validationErrors)
+  if (Object.keys(validationErrors).length === 0) {
+    alert("For Submitted successfully")
+  }
   return (
     <form onSubmit={handleSubmit} className="container flex flex-col items-center">
       <header className='my-4 '>
@@ -52,18 +58,23 @@ function LoginSignup() {
         {title === 'Sign In' ? <div></div> :
           <div className="input flex gap-5">
             <input type="text" name='firstName' autoComplete='off' placeholder='FirstName' onChange={handleChange} />
+            {errors.firstName && <span>{errors.firstName}</span>}
             <input type="text" name='lastName' autoComplete='off' placeholder='LastName' />
+            {errors.lastName && <span>{errors.lastName}</span>}
           </div>
         }
 
         <div className="input">
           <input type="email" name='email' autoComplete='off' placeholder='email' />
+          {errors.email && <span>{errors.email}</span>}
         </div>
         <div className="input">
           <input type="password" name='password' placeholder='password' />
+          {errors.password && <span>{errors.password}</span>}
         </div>
         {title === 'Sign In' ? <div></div> : <div className="input flex">
           <input type="password" name='confirmPassword' placeholder='Confirm Password' />
+          {errors.confirmPassword && <span>{errors.confirmPassword}</span>}
         </div>}
 
       </div>
