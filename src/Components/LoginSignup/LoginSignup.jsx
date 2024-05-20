@@ -23,7 +23,7 @@ function LoginSignup() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const validationErrors = {}
+    const validationErrors = {};
     if (!formData.firstName.trim()) {
       validationErrors.firstName = 'FirstName is required'
     }
@@ -32,7 +32,7 @@ function LoginSignup() {
     }
     if (!formData.email.trim()) {
       validationErrors.email = 'email is required'
-    } else if (!/\S+@\S\.\S+/.test(formData.email)) {
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       validationErrors.email = "email is not valid"
     }
     if (!formData.password.trim()) {
@@ -43,12 +43,14 @@ function LoginSignup() {
     if (formData.confirmPassword !== formData.password) {
       validationErrors.confirmPassword = 'Password not match'
     }
+
+    setErrors(validationErrors)
+    if (Object.keys(validationErrors).length === 0) {
+      alert("For Submitted successfully")
+    }
   }
 
-  setErrors(validationErrors)
-  if (Object.keys(validationErrors).length === 0) {
-    alert("For Submitted successfully")
-  }
+
   return (
     <form onSubmit={handleSubmit} className="container flex flex-col items-center">
       <header className='my-4 '>
@@ -59,21 +61,21 @@ function LoginSignup() {
           <div className="input flex gap-5">
             <input type="text" name='firstName' autoComplete='off' placeholder='FirstName' onChange={handleChange} />
             {errors.firstName && <span>{errors.firstName}</span>}
-            <input type="text" name='lastName' autoComplete='off' placeholder='LastName' />
+            <input type="text" name='lastName' autoComplete='off' placeholder='LastName' onChange={handleChange} />
             {errors.lastName && <span>{errors.lastName}</span>}
           </div>
         }
 
         <div className="input">
-          <input type="email" name='email' autoComplete='off' placeholder='email' />
+          <input type="email" name='email' autoComplete='off' placeholder='email' onChange={handleChange} />
           {errors.email && <span>{errors.email}</span>}
         </div>
         <div className="input">
-          <input type="password" name='password' placeholder='password' />
+          <input type="password" name='password' placeholder='password' onChange={handleChange} />
           {errors.password && <span>{errors.password}</span>}
         </div>
         {title === 'Sign In' ? <div></div> : <div className="input flex">
-          <input type="password" name='confirmPassword' placeholder='Confirm Password' />
+          <input type="password" name='confirmPassword' placeholder='Confirm Password' onChange={handleChange} />
           {errors.confirmPassword && <span>{errors.confirmPassword}</span>}
         </div>}
 
@@ -107,7 +109,7 @@ function LoginSignup() {
           <span className='cursor-pointer' onClick={() => setTitle('Sign In')}>Sign in</span>
         </div> :
         <div className="flex gap-2">
-          <p>Don't have an account ? </p>
+          <p>Dont have an account ? </p>
           <span className='cursor-pointer' onClick={() => setTitle('Sign Up')}> Sign up</span>
         </div>
       }
