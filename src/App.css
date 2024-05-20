@@ -47,3 +47,30 @@ span {
 .container {
   padding-left: 1rem;
 }
+
+@media only screen and (max-width: 380px) {
+  .name input {
+    width: 10rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  input {
+    width: 11rem;
+  }
+
+  input[type="password"],
+  input[type="email"] {
+    width: 22rem;
+  }
+
+  .checkbox,
+  .remember {
+    gap: 10px;
+  }
+
+  .checkbox input,
+  .remember input {
+    width: 1rem;
+  }
+}

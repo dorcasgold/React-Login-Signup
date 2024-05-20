@@ -41,7 +41,7 @@ function LoginSignup() {
       validationErrors.password = "password should be at least 7 char"
     }
     if (formData.confirmPassword !== formData.password) {
-      validationErrors.confirmPassword = 'Password not match'
+      validationErrors.confirmPassword = 'Password do not match'
     }
 
     setErrors(validationErrors)
@@ -59,11 +59,11 @@ function LoginSignup() {
       <div className="inputs">
         {title === 'Sign In' ? <div></div> :
           <div className="input flex gap-5">
-            <div className='flex flex-col'>
+            <div className='name flex flex-col'>
               <input type="text" name='firstName' autoComplete='off' placeholder='FirstName' onChange={handleChange} />
               {errors.firstName && <span className='errors'>{errors.firstName}</span>}
             </div>
-            <div className='flex flex-col'>
+            <div className='name flex flex-col'>
               <input type="text" name='lastName' autoComplete='off' placeholder='LastName' onChange={handleChange} />
               {errors.lastName && <span className='errors'>{errors.lastName}</span>}
             </div>
@@ -87,7 +87,7 @@ function LoginSignup() {
 
       </div>
       {title === 'Sign In' ?
-        <div className="flex gap-2">
+        <div className="remember flex gap-2">
           <input type="checkbox" />
           <p>Remember me</p>
           <span>Forgot Password</span>
